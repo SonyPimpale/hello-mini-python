@@ -131,7 +131,7 @@ $ kubectl apply -f /templates/deployment.yaml
 
 To check the service has been replicated and running well
 ```bash
-$ kubectl get pods
+$ kubectl get deployments,pods,service
 ```
 
 To see the Kubernetes dashboard of application 
