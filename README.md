@@ -60,7 +60,7 @@ CMD ["python", "/app/app.py"]
 Build Docker file 
 
 ```bash
-$docker build -t sony19/flask-kubernete:v0.2 .
+$docker build -t sony19/flask-kubernete:v0.3 .
 ```
 
 Check Image 
@@ -72,7 +72,7 @@ $docker images
 To push the image to Docker Hub
 
 ```bash
-$ docker push sony19/flask-kubernete:v0.2
+$ docker push sony19/flask-kubernete:v0.3
 ```
 
 ##4. deployment.yaml
