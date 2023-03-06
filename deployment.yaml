@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: flask-test-app
-        image: sony19/flask-kubernete:v0.1
+        image: sony19/flask-kubernete:v0.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
