@@ -13,7 +13,7 @@ flask
 Flash dependencies in Python is needed for application, which is installed using below command.
 
 ```bash
-$pip3 install flask 
+pip3 install flask 
 ```
 
 ## 2. Application - Hello MiniKube (Simple Python API)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 Run below command to check app.py works without errors.
 
 ```bash
-$ python3 app.py
+python3 app.py
 ```
 
 ## 2.1 App Tests - Simple PyTest
@@ -60,19 +60,19 @@ CMD ["python", "/app/app.py"]
 Build Docker file 
 
 ```bash
-$docker build -t sony19/flask-kubernete:v0.3 .
+docker build -t sony19/flask-kubernete:v0.3 .
 ```
 
 Check Image 
 
 ```bash
-$docker images
+docker images
 ```
 
 To push the image to Docker Hub
 
 ```bash
-$ docker push sony19/flask-kubernete:v0.3
+docker push sony19/flask-kubernete:v0.3
 ```
 
 ##4. deployment.yaml
@@ -102,7 +102,7 @@ spec:
   selector:
     matchLabels:
       app: flask-test-app
-  replicas: 5
+  replicas: 2
   template:
     metadata:
       labels:
@@ -110,7 +110,7 @@ spec:
     spec:
       containers:
       - name: flask-test-app
-        image: sony19/flask-kubernete:v0.2
+        image: sony19/flask-kubernete:v0.3
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
@@ -121,28 +121,28 @@ spec:
 To run Kubernetes application, Start minikube
 
 ```bash
-$ minikube start
+minikube start
 ```
 
 command to kubernetes to run docker and replicate the service
 ```bash
-$ kubectl apply -f /templates/deployment.yaml
+kubectl apply -f templates/deployment.yaml
 ```
 
 To check the service has been replicated and running well
 ```bash
-$ kubectl get deployments,pods,service
+kubectl get pods
 ```
 
 To see the Kubernetes dashboard of application 
 
 ```bash
-$ minikube dashboard
+minikube dashboard
 ```
 
 To access the flask application run below command. This will openup the browser, it calls the api which was inside the flask and we can see “Hello world”
 ```bash
-$minikube service flask-test-service
+minikube service flask-test-service
 ```
 
 To cleanup the deployment
