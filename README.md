@@ -35,7 +35,7 @@ if __name__ == "__main__":
 Run below command to check app.py works without errors.
 
 ```bash
-python3 app.py
+python3 src/app.py
 ```
 
 ## 2.1 App Tests - Simple PyTest
