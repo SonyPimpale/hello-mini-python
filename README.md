@@ -53,9 +53,11 @@ python3 -m pytest tests/*
 FROM python:3.7
 RUN mkdir /app
 WORKDIR /app/
-ADD . /app/
-RUN pip install -r requirements.txt
-CMD ["python", "/app/app.py"]
+COPY src/app.py .
+COPY src/resources/requirements.txt .
+
+RUN pip install -r requirements.txt 
+CMD ["python", "app.py"]
 ```
 Build Docker file 
 
